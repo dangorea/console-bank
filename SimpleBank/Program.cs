@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleBank;
+using System;
 
 internal class Program
 {
@@ -24,6 +25,7 @@ internal class Program
 
             do
             {
+                Console.Clear();
                 Console.WriteLine(":::Main menu:::");
                 Console.WriteLine("1. Customers");
                 Console.WriteLine("2. Accounts");
@@ -37,6 +39,7 @@ internal class Program
                 switch (mainMenuChoice)
                 {
                     case 1:
+                        Console.Clear();
                         CustomersMenu();
                         break;
                     case 2:
@@ -67,7 +70,7 @@ internal class Program
         int customerMenuChoice = -1;
         do
         {
-            Console.WriteLine("\n:::Customers menu:::");
+            Console.WriteLine(":::Customers menu:::");
             Console.WriteLine("1. Add Customer");
             Console.WriteLine("2. Delete Customer");
             Console.WriteLine("3. Update Customer");
@@ -75,8 +78,18 @@ internal class Program
             Console.WriteLine("5. View Customer");
             Console.WriteLine("0. Back to Main Menu");
 
-            Console.Write("EnterChoice: ");
+            Console.Write("Enter Choice: ");
             customerMenuChoice = Convert.ToInt32(Console.ReadLine());
+
+            switch (customerMenuChoice)
+            {
+                case 1:
+                    CustomerPresentation.AddCustomer();
+                    break;
+                case 5:
+                    CustomerPresentation.ViewCustomers();
+                    break;
+            }
         } while (customerMenuChoice != 0);
     }
 
@@ -85,7 +98,8 @@ internal class Program
         int accountsMenuChoice = -1;
         do
         {
-            Console.WriteLine("\n:::Accounts menu:::");
+            Console.Clear();
+            Console.WriteLine(":::Accounts menu:::");
             Console.WriteLine("1. Add Account");
             Console.WriteLine("2. Delete Account");
             Console.WriteLine("3. Update Account");

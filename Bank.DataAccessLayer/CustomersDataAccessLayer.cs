@@ -13,11 +13,11 @@ namespace Bank.DataAccessLayer
     {
 
         #region Fields 
-        private List<Customer> _customers;
+        private static List<Customer> _customers;
         #endregion
 
         #region Constructors
-        public CustomersDataAccessLayer()
+        static CustomersDataAccessLayer()
         {
             _customers = new List<Customer>();
         }
@@ -27,7 +27,7 @@ namespace Bank.DataAccessLayer
         /// <summary>
         ///  Represents source customer collection
         /// </summary>
-        private List<Customer> Customers
+        private static List<Customer> Customers
         {
             set => _customers = value;
             get => _customers;
@@ -68,9 +68,9 @@ namespace Bank.DataAccessLayer
             {
                 List<Customer> customersList = new List<Customer>();
 
-                List<Customer> filteredCustomers = customersList.FindAll(predicate);
+                List<Customer> filteredCustomers = Customers.FindAll(predicate);
 
-                Customers.ForEach(customer => filteredCustomers.Add(customer.Clone() as Customer));
+                filteredCustomers.ForEach(customer => customersList.Add(customer.Clone() as Customer));
 
                 return customersList;
             }
