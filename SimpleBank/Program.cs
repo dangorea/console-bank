@@ -18,7 +18,7 @@ internal class Program
             password = Console.ReadLine();
         }
 
-        if (userName == "system" && password == "system") 
+        if (userName == "system" && password == "system")
         {
             int mainMenuChoice = -1;
 
@@ -52,7 +52,8 @@ internal class Program
                         break;
                 }
             } while (mainMenuChoice != 0);
-        } else
+        }
+        else
         {
             Console.WriteLine("Invalid Username or password");
         }
@@ -64,15 +65,17 @@ internal class Program
     private static void CustomersMenu()
     {
         int customerMenuChoice = -1;
-        do { 
+        do
+        {
             Console.WriteLine("\n:::Customers menu:::");
             Console.WriteLine("1. Add Customer");
             Console.WriteLine("2. Delete Customer");
             Console.WriteLine("3. Update Customer");
-            Console.WriteLine("4. View Customer");
+            Console.WriteLine("4. Search Customers");
+            Console.WriteLine("5. View Customer");
             Console.WriteLine("0. Back to Main Menu");
 
-            Console.Write("EnterChoice");
+            Console.Write("EnterChoice: ");
             customerMenuChoice = Convert.ToInt32(Console.ReadLine());
         } while (customerMenuChoice != 0);
     }
@@ -89,7 +92,7 @@ internal class Program
             Console.WriteLine("4. View Accounts");
             Console.WriteLine("0. Back to Main Menu");
 
-            Console.Write("EnterChoice");
+            Console.Write("EnterChoice: ");
             accountsMenuChoice = Convert.ToInt32(Console.ReadLine());
         } while (accountsMenuChoice != 0);
     }
